@@ -2,7 +2,6 @@
   "name": "naming-poc",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js --exec babel-node --presets env",
@@ -35,21 +34,3 @@
     "webpack-cli": "^4.7.2"
   }
 }
-=======
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "https": "^1.0.0",
-    "jsonpath": "^1.1.1",
-    "querystring": "^0.2.1",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
-  }
-}
->>>>>>> 176a3081c94a25a0254b4c8855390631d623c626

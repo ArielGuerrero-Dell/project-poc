@@ -70,7 +70,7 @@ function isBadWord(str) {
     let bw = new badwords();
     if (bw.isProfane(str))
         return true; // is a bad word
-    return true; // is not a bad word
+    return false; // is not a bad word
 }
 
 // formats name into book title formatting using supplied product list 
