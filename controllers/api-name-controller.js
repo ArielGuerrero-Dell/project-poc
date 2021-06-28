@@ -1,16 +1,33 @@
-import { isCamelCase, toCamelCase, replaceUnwantedEntities, strWordCheck, bookTitleFormat } from '../api_tools/text-check.js';
+import { isCamelCase, isBadWord, toCamelCase, replaceUnwantedEntities, strWordCheck, bookTitleFormat } from '../api_tools/text-check.js';
 import { getPrediction } from '../api_tools/luis-product-identification.js';
 import { spellCheck } from '../api_tools/bing-spell-check.js'
+
 const entities_list = ['technologies', 'envDetails', 'progLangKeyword', 'redundant', 'verbs'];
 
 async function parseApiNameQuery(query) {
     let cc_query = query;
 
-    if (strWordCheck(query))
-        return { isValid: "false", query: "ERROR: You did't submit a valid API Service Name." };
-
+    if (strWordCheck(query)){
+        return { 
+            isValid: "false", 
+            query: "ERROR: You did't submit a valid API Name.",
+            suggestedQuery: "ERROR: You did't submit a valid API Name.",
+            associatedProducts: [] 
+        };
+    }
+    
     if (!isCamelCase(query))
         cc_query = await toCamelCase(query);
+
+    if(isBadWord(cc_query)){
+        return { 
+            isValid: "false", 
+            query: "ERROR: Profanity is NOT allowed.",
+            suggestedQuery: "ERROR: Profanity is NOT allowed.",
+            associatedProducts: [] 
+        };
+    }
+    
     let luis_model = await getPrediction(cc_query);
 
     var entities = luis_model.prediction.entities;
@@ -38,23 +55,22 @@ async function parseApiNameQuery(query) {
     if (strWordCheck(cc_query, products_entered.length)){
         return { 
             isValid: "false", 
-            query: "ERROR: You did't submit a valid Product in your API Service Name.",
-            suggestedQuery: "ERROR: You did't submit a valid Product in your API Service Name.",
+            query: "ERROR: You did't submit a valid API Name.",
+            suggestedQuery: "ERROR: You did't submit a valid API Name.",
             associatedProducts: [] 
         };
     }
+    
     let suggested_query = await spellCheck(cc_query, products_entered);
 
     suggested_query = await bookTitleFormat(suggested_query, products_entered);
 
-    let return_model = {
+    return {
         isValid: "true",
         query: query,
         suggestedQuery: suggested_query,
         associatedProducts: products_entered
     }
-
-    return return_model;
 }
 
 export { parseApiNameQuery };

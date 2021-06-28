@@ -1,3 +1,5 @@
+import badwords from 'bad-words'
+
 const camel_case_regex = /^([A-Z][a-z]*|[A-Z]*)( {1}([A-Z][a-z]*|[A-Z]*))*$/;
 const replace_regex = new RegExp(/[^a-zA-Z]+/, "g");
 const word_check_regex = new RegExp('\\s+');
@@ -63,6 +65,14 @@ function ridWhiteSpace(str) {
     return str_tok.join(delim);
 }
 
+// checks the provided query for profanity
+function isBadWord(str) {
+    let bw = new badwords();
+    if (bw.isProfane(str))
+        return true; // is a bad word
+    return true; // is not a bad word
+}
+
 // formats name into book title formatting using supplied product list 
 async function bookTitleFormat(str, list) {
     str = ridWhiteSpace(str);
@@ -95,7 +105,6 @@ async function replaceUnwantedEntities(str, list) {
 
 // makes string camel cased
 async function toCamelCase(str) {
-
     str = replaceNonAlphas(str);
     str = camelCaseStringSplit(str);
 
@@ -118,4 +127,4 @@ async function toCamelCase(str) {
     return result.join(delim);
 }
 
-export { isCamelCase, toCamelCase, replaceUnwantedEntities, strWordCheck, bookTitleFormat };
+export { isCamelCase, isBadWord, toCamelCase, replaceUnwantedEntities, strWordCheck, bookTitleFormat };

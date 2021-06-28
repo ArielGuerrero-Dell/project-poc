@@ -1,1 +1,1 @@
-GET http://localhost:3000/validation?query=AeroV1Service_DIT
+GET http://localhost:3000/validation?query=AeroV1Service_DIT ASS
