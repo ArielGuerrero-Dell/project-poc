@@ -12,7 +12,15 @@ function isCamelCase(str) {
 
 // returns true for all uppercase strings
 function isUpperCase(str) {
-    return str !== str.toUpperCase();
+    return str === str.toUpperCase();
+}
+
+// checks the provided query for profanity
+function isBadWord(str) {
+    let bw = new badwords();
+    if (bw.isProfane(str))
+        return true; // is a bad word
+    return false; // is not a bad word
 }
 
 // replaces non alphabetic characters with a space.
@@ -30,26 +38,25 @@ function strWordCheck(str, products) {
 // splits strings that are camelcased but not space delimed
 function camelCaseStringSplit(str) {
 
-    if (isUpperCase(str.substr(2)))
-        str = splitCamelStringUnique(str);
+    str = splitCamelStringUnique(str);
 
     return str.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
 }
 
 // splits string that have all caps words in the start but is already camel cased otherwise 
 function splitCamelStringUnique(str) {
+
     let str_cap_tok = str.split(/(?=[A-Z])/);
     let new_str = "";
 
     str_cap_tok.forEach(i => {
         if (i.length == 1)
             new_str += i;
-        else if (i !== 'undefined') {
+        else if (i !== 'undefined')
             new_str += " " + i;
-        }
     });
 
-    new_str = ridWhiteSpace(new_str)
+    new_str = ridWhiteSpace(new_str);
     return new_str;
 }
 
@@ -63,14 +70,6 @@ function ridWhiteSpace(str) {
     });
 
     return str_tok.join(delim);
-}
-
-// checks the provided query for profanity
-function isBadWord(str) {
-    let bw = new badwords();
-    if (bw.isProfane(str))
-        return true; // is a bad word
-    return false; // is not a bad word
 }
 
 // formats name into book title formatting using supplied product list 
@@ -95,6 +94,7 @@ async function bookTitleFormat(str, list) {
 async function replaceUnwantedEntities(str, list) {
 
     list.forEach(element => {
+        ``
         str = str.replace(new RegExp(element, "gi"), "");
     });
 
@@ -107,16 +107,14 @@ async function replaceUnwantedEntities(str, list) {
 async function toCamelCase(str) {
     str = replaceNonAlphas(str);
     str = camelCaseStringSplit(str);
-
     let str_tokens = str.split(delim);
     let result = [];
 
     str_tokens.forEach(token => {
         let temp_str;
-
         if (token.length <= 1)
             temp_str = "";
-        else if ((isUpperCase(token)))
+        else if (!isUpperCase(token))
             temp_str = token[0].toUpperCase() + token.substr(1, token.len).toLowerCase();
         else
             temp_str = token;
