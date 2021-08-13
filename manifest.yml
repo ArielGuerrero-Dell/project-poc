@@ -1,0 +1,7 @@
+applications:
+  - name: api-naming-app
+    command: node .
+    stack: cflinuxfs3
+    buildpacks:
+      - dicf_nodejs_buildpack_1752_cflinuxfs3
+    memory: 1G

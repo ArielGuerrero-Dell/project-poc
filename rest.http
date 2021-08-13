@@ -1,1 +1,1 @@
-GET http://localhost:3000/validation?query=AeroV1ServiceDITChecker_DIT
+GET http://localhost:4040/validation?query=Helper Servuce Non-Prod HR Data Lake

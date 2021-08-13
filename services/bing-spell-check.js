@@ -1,4 +1,12 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+
+// bing KEY
+// const BING_SPELLCHECK_KEY = '06010d2fdc0f494fa8a1990e892e4cf7'; // v1
+const BING_SPELLCHECK_KEY = 'a7a710358f1447648522ce4f97a25d81'; // v2
+
+// bing ENDPOINT   
+const BING_ENDPOINT = 'https://api.bing.microsoft.com/v7.0/spellcheck';
 
 async function spellCheck(query, products_entered) {
 
@@ -12,11 +20,11 @@ async function spellCheck(query, products_entered) {
     // token to store flagged items
     let t;
 
+    // Create query string for bing
     let headers = {
-        'Ocp-Apim-Subscription-Key': process.env.BING_SPELLCHECK_KEY
+        'Ocp-Apim-Subscription-Key': BING_SPELLCHECK_KEY
     }
 
-    // Create query string for bing
     let params = {
         "mode": mode,
         "mkt": mkt,
@@ -25,12 +33,13 @@ async function spellCheck(query, products_entered) {
 
     let options = {
         method: 'POST',
-        url: process.env.BING_ENDPOINT,
+        url: BING_ENDPOINT,
         params: params,
         headers: headers,
         data: { Text: text }
     };
 
+    // items that were flagged as misspelled.
     let flagged_items = await axios.request(options).then(function (response) { return response.data.flaggedTokens; }).catch(function (e) { console.error(e); });
 
     split_text.forEach(split_item => {

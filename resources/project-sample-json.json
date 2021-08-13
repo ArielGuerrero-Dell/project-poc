@@ -1,10 +1,10 @@
 {
     "isValid": "true",
-    "query": "AeroV1Service_DIT",
-    "suggestedQuery": "Aero Service DIT",
+    "query": "Cool Servuce Novora Non-Prod AERO API Test HR Data Lake",
+    "suggestedQuery": "Novora AERO HR Data Lake Cool Service",
     "associatedProducts": [
-        [
-            "AERO"
-        ]
+        "Novora - Platform Foundation",
+        "AERO",
+        "HR Data Lake"
     ]
 }

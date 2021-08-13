@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: api naming checker
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'http://localhost:3000'
+    description: local
+  - url: 'https://api.sr3.pcf.dell.com'
+paths:
+  /validation:
+    get:
+      summary: name validation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: response
+                type: object
+                properties:
+                  isValid:
+                    type: string
+                    minLength: 1
+                  query:
+                    type: string
+                    minLength: 1
+                  suggestedQuery:
+                    type: string
+                    minLength: 1
+                  associatedProducts:
+                    type: array
+                required:
+                  - isValid
+                  - query
+                  - suggestedQuery
+                  - associatedProducts
+              examples:
+                example-3:
+                  value:
+                    isValid: 'true'
+                    query: Cool Servuce Novora Non-Prod API Test HR Data Lake
+                    suggestedQuery: Novora HR Data Lake Cool Service
+                    associatedProducts:
+                      - Novora - Platform Foundation
+                      - HR Data Lake
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: q
+          description: user submitted api name

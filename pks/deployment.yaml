@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-naming-intern-project-parri
+  namespace: parri-development
+spec:
+  selector:
+    matchLabels:
+      app: api-naming-intern-project-parri
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api-naming-intern-project-parri
+        technology: node.js
+        component: restful-service
+        owner: parri
+    spec:
+      containers:
+        - name: api-naming-intern-project-parri
+          image: harbor.dell.com/cloudenablement/api-naming-intern-project-parri:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "1024Mi"
+              cpu: "1"
+          ports:
+            - containerPort: 4040
+              name: server

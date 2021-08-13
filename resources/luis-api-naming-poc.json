@@ -1,0 +1,439 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "Invalid-Name",
+      "features": [
+        {
+          "modelName": "envDetails",
+          "isRequired": false
+        },
+        {
+          "modelName": "progLangKeyword",
+          "isRequired": false
+        },
+        {
+          "modelName": "redundant",
+          "isRequired": false
+        },
+        {
+          "modelName": "technologies",
+          "isRequired": false
+        },
+        {
+          "modelName": "verbs",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "None",
+      "features": []
+    },
+    {
+      "name": "Valid-Name",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "envDetails",
+      "subLists": [
+        {
+          "canonicalForm": "New",
+          "list": [
+            "new"
+          ]
+        },
+        {
+          "canonicalForm": "Non Prod",
+          "list": [
+            "Non Production",
+            "NonProd"
+          ]
+        },
+        {
+          "canonicalForm": "Prototype",
+          "list": [
+            "PROTOTYPE"
+          ]
+        },
+        {
+          "canonicalForm": "MVP",
+          "list": [
+            "mvp"
+          ]
+        },
+        {
+          "canonicalForm": "poc",
+          "list": [
+            "Poc"
+          ]
+        },
+        {
+          "canonicalForm": "test",
+          "list": [
+            "Test"
+          ]
+        },
+        {
+          "canonicalForm": "prod",
+          "list": [
+            "PROD"
+          ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "lastNames",
+      "subLists": [
+        {
+          "canonicalForm": "Trump",
+          "list": []
+        },
+        {
+          "canonicalForm": "Biden",
+          "list": []
+        },
+        {
+          "canonicalForm": "Sanders",
+          "list": []
+        },
+        {
+          "canonicalForm": "Harris",
+          "list": []
+        },
+        {
+          "canonicalForm": "Obama",
+          "list": []
+        },
+        {
+          "canonicalForm": "Bush",
+          "list": []
+        },
+        {
+          "canonicalForm": "Clinton",
+          "list": []
+        },
+        {
+          "canonicalForm": "Kennedy",
+          "list": []
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "products",
+      "subLists": [
+        {
+          "canonicalForm": "Novora - Platform Foundation",
+          "list": [
+            "Novora",
+            "Novora Platform Foundation"
+          ]
+        },
+        {
+          "canonicalForm": "Facilities Data Lake",
+          "list": []
+        },
+        {
+          "canonicalForm": "HR Data Lake",
+          "list": []
+        },
+        {
+          "canonicalForm": "HR Service Management",
+          "list": []
+        },
+        {
+          "canonicalForm": "Legal Service Management",
+          "list": []
+        },
+        {
+          "canonicalForm": "Candidate Sourcing & Offer Management",
+          "list": [
+            "Candidate Sourcing",
+            "Offer Management"
+          ]
+        },
+        {
+          "canonicalForm": "Career & Development - Performance Management, Rewards & Recognition",
+          "list": [
+            "Performance Management",
+            "Rewards And Recognition",
+            "Career And Development"
+          ]
+        },
+        {
+          "canonicalForm": "Employee Benefits & Compensation",
+          "list": [
+            "Employee Compensation",
+            "Employee Benefits"
+          ]
+        },
+        {
+          "canonicalForm": "Employee Lifecycle - Onboarding to Offboarding",
+          "list": [
+            "Onboarding to Offboarding",
+            "Employee Lifecycle"
+          ]
+        },
+        {
+          "canonicalForm": "Customer Payments",
+          "list": []
+        },
+        {
+          "canonicalForm": "Financial Reporting",
+          "list": []
+        },
+        {
+          "canonicalForm": "AERO",
+          "list": [
+            "Aero"
+          ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "progLangKeyword",
+      "subLists": [
+        {
+          "canonicalForm": "string",
+          "list": []
+        },
+        {
+          "canonicalForm": "char",
+          "list": []
+        },
+        {
+          "canonicalForm": "return",
+          "list": []
+        },
+        {
+          "canonicalForm": "int",
+          "list": []
+        },
+        {
+          "canonicalForm": "private",
+          "list": []
+        },
+        {
+          "canonicalForm": "public",
+          "list": []
+        },
+        {
+          "canonicalForm": "continue",
+          "list": []
+        },
+        {
+          "canonicalForm": "else if",
+          "list": []
+        },
+        {
+          "canonicalForm": "else",
+          "list": []
+        },
+        {
+          "canonicalForm": "if",
+          "list": []
+        },
+        {
+          "canonicalForm": "var",
+          "list": []
+        },
+        {
+          "canonicalForm": "let",
+          "list": []
+        },
+        {
+          "canonicalForm": "for",
+          "list": []
+        },
+        {
+          "canonicalForm": "switch",
+          "list": []
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "redundant",
+      "subLists": [
+        {
+          "canonicalForm": "api",
+          "list": [
+            "API"
+          ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "technologies",
+      "subLists": [
+        {
+          "canonicalForm": "React",
+          "list": []
+        },
+        {
+          "canonicalForm": "Angular",
+          "list": []
+        },
+        {
+          "canonicalForm": "Node",
+          "list": [
+            "Node.js"
+          ]
+        },
+        {
+          "canonicalForm": "dotnet",
+          "list": [
+            ".Net"
+          ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "verbs",
+      "subLists": [
+        {
+          "canonicalForm": "get",
+          "list": []
+        },
+        {
+          "canonicalForm": "fetch",
+          "list": []
+        },
+        {
+          "canonicalForm": "post",
+          "list": []
+        },
+        {
+          "canonicalForm": "patch",
+          "list": []
+        },
+        {
+          "canonicalForm": "delete",
+          "list": []
+        },
+        {
+          "canonicalForm": "put",
+          "list": []
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "prebuiltEntities": [],
+  "utterances": [
+    {
+      "text": "/luis",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "aero help desk link service",
+      "intent": "Valid-Name",
+      "entities": []
+    },
+    {
+      "text": "awesome new angular api",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hello/",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "helper servuce non prod hr data lake",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hi",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hi/luis",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hr data lake angular front end service",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "hr data lake help service",
+      "intent": "Valid-Name",
+      "entities": []
+    },
+    {
+      "text": "new novora api help service",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "new_____api_novora__help___service",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "not a real apiname",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "notaproduct prod react api",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "novora new service listing",
+      "intent": "Invalid-Name",
+      "entities": []
+    },
+    {
+      "text": "novora sample service help",
+      "intent": "Valid-Name",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "intern-api-naming-poc",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [
+    {
+      "pattern": "{products} {redundant} service name",
+      "intent": "Invalid-Name"
+    },
+    {
+      "pattern": "{redundant} {products} service {envDetails}",
+      "intent": "Invalid-Name"
+    },
+    {
+      "pattern": "{products} service name",
+      "intent": "Valid-Name"
+    }
+  ],
+  "settings": []
+}
